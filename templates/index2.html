@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Diabetes Predictor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+ <div class="login">
+	<h1>Are you at risk of getting diabetes?</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+	<input style="width:100px" type="text" name="Sex" placeholder="Sex (M/F)" required="required" />
+        <input style="width:300px" type="text" name="Family diabetes" placeholder="Do you have a family history of diabetes? (Y/N)" required="required" />
+	<input style="width:100px" type="text" name="BMI" placeholder="BMI" required="required" />
+	<input style="width:200px" type="text" name="Smoking" placeholder="Are you a smoker? (Y/N)" required="required" />
+	<input style="width:250px" type="text" name="Alcohol" placeholder="Do you reguarly drink alcohol? (Y/N)" required="required" />
+	<input style="width:250px" type="text" name="Sleep" placeholder="How many hours do you sleep?" required="required" />
+	<input style="width:250px" type="text" name="Sound sleep" placeholder="How many hours do you sleep soundly?" required="required" />
+	<input style="width:250px" type="text" name="Medicine" placeholder="Do you regularly take medication? (Y/N)" required="required" />
+	<input style="width:300px" type="text" name="Pregnancies" placeholder="How many pregnancies have you had?" required="required" />
+	<input style="width:300px" type="text" name="Pdiabetes" placeholder="Have you ever had gestational diabetes? (Y/N)" required="required" />
+	<input style="width:250px" type="text" name="Urination frequency" placeholder="Do you urinate frequently? (Y/N)" required="required" />
+	<input style="width:250px" type="text" name="BP" placeholder="What is your systolic blood pressure?" required="required" />
+	<input style="width:400px" type="text" name="Stress" placeholder="How often do you experience stress on a scale of 1-10?" required="required" />
+	<input style="width:450px" type="text" name="Diet" placeholder="How often do you eat junk food? (occasionally/often/very often/always)" required="required" />
+	<input style="width:300px" type="text" name="Exercise" placeholder="How many minutes do you exercise per day?" required="required" />
+	<input style="width:200px" type="text" name="Age" placeholder="What is your age?" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+</body>
+</html>
